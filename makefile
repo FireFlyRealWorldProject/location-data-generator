@@ -1,2 +1,2 @@
 all:
-	gdc symptomdatagenerator.d
+	gdc locationdatagenerator.d
