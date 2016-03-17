@@ -41,9 +41,8 @@ void main(string[] args)
 
     if (args.length >= 4)       //Open the files
     {
-        JSON = File(args[1], "r");
-        ids = File(args[2], "r");
-        LocationPairs = File(args[3], "r");
+        ids = File(args[1], "r");
+        LocationPairs = File(args[2], "r");
 
     }
     else if (args.length == 2)
@@ -67,23 +66,17 @@ void main(string[] args)
 
     int lineCount = 1;
 
-    while (!JSON.eof())
-    {
-        JSONStructureFields[lineCount] = JSON.readln();
-    }
-
-
 
     //JSONValue j = parseJSON(JSONStructureString);     //Parse the JSON
     JSONValue j = parseJSON(JSONStructureString);
-    writefln("Doing %s IDs", args[4]);
+    writefln("Doing %s IDs", args[3]);
 
     writeln("Using JSON structure: \n");
     writeln(j.toString);
 
     JSONValue patiants[];    //List of patiants
 
-    patiants.length = to!int(args[4]);
+    patiants.length = to!int(args[3]);
 
 
     //Read in all the anthrax symptoms
