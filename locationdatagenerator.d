@@ -58,6 +58,7 @@ void main(string[] args)
     else
     {
         writeln("Not enough args");
+        writeln( "JSONFile idsfile locationpairs [numberOfPatiants (0 to generate data for each ID)]");
         return ;
     }
 
