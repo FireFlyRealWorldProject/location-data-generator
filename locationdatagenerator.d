@@ -38,6 +38,7 @@ void main(string[] args)
     File ids;
     File LocationPairs;
 
+    string filename = args[3];
 
     if (args.length >= 4)       //Open the files
     {
@@ -67,12 +68,11 @@ void main(string[] args)
     int lineCount = 1;
 
 
-    //JSONValue j = parseJSON(JSONStructureString);     //Parse the JSON
     JSONValue j = parseJSON(JSONStructureString);
     writefln("Doing %s IDs", args[3]);
 
     writeln("Using JSON structure: \n");
-    writeln(j.toString);
+    writeln(j.toString());
 
     JSONValue patiants[];    //List of patiants
 
@@ -96,6 +96,8 @@ void main(string[] args)
         lineCount++;
     }
 
+    writeln("Read in all the locaions");
+
     //How many symptoms does each patiant have maximum?
 
     int i = 0;
@@ -105,7 +107,7 @@ void main(string[] args)
         { break; }
 
         patiants[i] = parseJSON(JSONStructureString); //New patiant
-        patiants[i].object["patiant_id"] = JSONValue(strip(ids.readln()));
+        patiants[i].object["patient_id"] = JSONValue(strip(ids.readln()));
         patiants[i].object["locations"] = JSONValue(LocationPairsList[uniform(0,LocationPairsList.length-1)]);   //Get random set of locations method
 
         i++;
@@ -115,8 +117,8 @@ void main(string[] args)
     foreach(int p, JSONValue patiant; patiants)
     {
         string patiantJSON = patiant.toPrettyString();
-        append("People.json", patiantJSON);
-        append("People.json", "\n");
+        append(filename, patiantJSON);
+        append(filename, "\n");
 //        writeln(patiantJSON);
     }
 
