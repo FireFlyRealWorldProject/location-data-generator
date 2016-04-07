@@ -38,7 +38,7 @@ void main(string[] args)
     File ids;
     File LocationPairs;
 
-    string filename = args[3];
+    string filename = args[4];
 
     if (args.length >= 4)       //Open the files
     {
